@@ -1,3 +1,6 @@
+long = int  # Patch für Python 3
+print(">>> [JNIUS DEBUG] Patch aktiv – long = int")
+
 cdef str_for_c(s):
     return s.encode('utf-8')
 
@@ -278,7 +281,6 @@ cdef int calculate_score(sign_args, args, is_varargs=False) except *:
     cdef JavaClass jc
     cdef int args_len = len(args)
     cdef int sign_args_len = len(sign_args)
-    long = int  # Ersatz für Python 3
 
     if args_len != sign_args_len and not is_varargs:
         # if the number of arguments expected is not the same
